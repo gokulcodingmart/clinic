@@ -37,43 +37,44 @@
 	</div>
 
 <% else %>
-	<p>i am not a doctor </p>
+	
 	<br>
-	<br>
-	<br>
-	<br>
-	<div ng-app="clinic" ng-controller="bookcontroller">
-    <input ng-model="firstname">
-	</div>
+	
 
-	<h1>Doctors</h1>
+	<h1 align="center">Doctors List</h1>
+	<br>
+	<br>
 		<% @doctor.each do |doc| %>
 	        <% if doc.doctor %>
 
 	        <div id="patientform" ng-controller="patientController">
 	        	<div class="container row">
-				  <div class="col-sm-6 result">
+				  
 				    
 				      
-				          <div class="col-sm-12 panel panel-default w3-card">
-				            <div class="details col-sm-8">
-				              <h3>Name:<%= doc.email %></h3>
+				          <div class="col-sm-5 w3-card-2 w3-hover-shadow w3-center doc">
+				            <div class="details col-sm-12 w3-center ">
+				              <h3 ><%= doc.email %>
+				              	
+				              </h3>
 				              
 				            </div>
-				            <div class="col-sm-4" >
+				            <div class=" " >
 				            	<%= form_tag(home_search_path, method: "get") do %>
 							        
+									<input id="user_born_on" name="date" type="date" />
 							        <%= hidden_field_tag(:doctorid, doc.id) %>
 							        <%= hidden_field_tag(:patientid, current_user.id) %>
-							        <%= submit_tag ("Book"), class: "send btn w3-blue" %>
+							        <%= submit_tag ("Book"), class: " btn w3-blue" %>
 							        <span id="gmaps-error"></span>
 							        <% end %>
 				              
 				            </div>
+				            <br>
 				            
 				          </div>
 				             
-				         </div>
+				         
 				     </div>
 				 </div>
 
@@ -84,6 +85,9 @@
 	
 <% end %>
 <br>
+<div ng-app="clinic" ng-controller="bookcontroller">
+    <input ng-model="firstname">
+	</div>
 
 
 

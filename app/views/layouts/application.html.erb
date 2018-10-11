@@ -15,7 +15,19 @@
    
     </head>
 
-    <body >
+    <body>
+       <%if notice != nil %>
+          <div class="alert alert-success alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <%= notice %>
+          </div>
+        <% end %>
+        <%if alert != nil %>
+          <div class="alert alert-danger alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <%= alert %>
+          </div>
+        <% end %>
 
     <div class="jumbotron text-center">
       <h1>Clinic</h1>
@@ -32,13 +44,12 @@
     </div>
 
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     
+   
 
     <%= yield %>
 
-   
+    
 
   </body>
 </html>

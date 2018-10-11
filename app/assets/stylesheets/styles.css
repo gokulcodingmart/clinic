@@ -4,7 +4,15 @@
   margin-bottom: 20px;
 }
 
-
+.doc{
+  margin-left: 420px;
+}
+#docemail{
+  margin-left: 100px;
+}
+.alert{
+  margin-bottom: 0px !important;
+}
 
 
 
@@ -200,6 +208,8 @@
 
 #result{
   padding-left: 40px;
+
+
 }
 
 #petform{
