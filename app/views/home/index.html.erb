@@ -4,21 +4,47 @@
 
 
 <% if current_user.doctor %>
- <p>i am a doctor </p>
- <h1>Booked patient</h1>
+ 
+ <h1 align="center" >Booked patient</h1>
+ 		<div class="container">
+		          
+		  <table class="table table-striped">
+		    <thead>
+		      <tr>
+		        <th>Email</th>
+		        <th>Date</th>
+		        
+		      </tr>
+		    </thead>
     <% @patient.each do |pat| %>
-        <% @details = User.where(:id => pat).first %>
-        <h3>Name:<%= @details.email %></h3>
-        <h3>Name:<%= pat.date %></h3>
+        <% @details = User.where(:id => pat.patient_id).first %>
+        
+				    <tbody>
+				      <tr>
+				        <td><%= @details.try(:email) %></td>
+				        <td><%= pat.date %></td>
+				        
+				      </tr>
+				     
+				    </tbody>
+				  
+       
+        
         
 
     <% end %>
+  </table>
+	</div>
+
 <% else %>
 	<p>i am not a doctor </p>
 	<br>
 	<br>
 	<br>
 	<br>
+	<div ng-app="clinic" ng-controller="bookcontroller">
+    <input ng-model="firstname">
+	</div>
 
 	<h1>Doctors</h1>
 		<% @doctor.each do |doc| %>
@@ -32,9 +58,17 @@
 				          <div class="col-sm-12 panel panel-default w3-card">
 				            <div class="details col-sm-8">
 				              <h3>Name:<%= doc.email %></h3>
+				              
 				            </div>
-				            <div class="col-sm-4" id="connect">
-				              <md-datepicker ng-model="" md-placeholder="Enter date"></md-datepicker>
+				            <div class="col-sm-4" >
+				            	<%= form_tag(home_search_path, method: "get") do %>
+							        
+							        <%= hidden_field_tag(:doctorid, doc.id) %>
+							        <%= hidden_field_tag(:patientid, current_user.id) %>
+							        <%= submit_tag ("Book"), class: "send btn w3-blue" %>
+							        <span id="gmaps-error"></span>
+							        <% end %>
+				              
 				            </div>
 				            
 				          </div>
@@ -43,11 +77,15 @@
 				     </div>
 				 </div>
 
-	        	<h3>Name:<%= doc.email %></h3>
+	        	
 	        <% end %>
 
 	    <% end %>
 	
 <% end %>
 <br>
+
+
+
+
 

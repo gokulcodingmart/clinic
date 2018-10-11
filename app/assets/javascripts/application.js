@@ -14,7 +14,9 @@
 
 //= require lib/jquery.min
 //= require lib/angular.min
-
+//= require lib/angular-animate.min
+//= require lib/angular-aria.min
+//= require lib/angular-messages.min
 //= require lib/angular-material.min
 
 
@@ -23,5 +25,7 @@
 //= require bootstrap
 //= require bootstrap-sprockets
 
+
 //= require_tree ./lib
+//= require_tree ./angular
 //= require_tree .

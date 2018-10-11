@@ -1,5 +1,7 @@
 {
   "name": "clinic",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "angularjs-rails-resource": "^2.3.1"
+  }
 }
