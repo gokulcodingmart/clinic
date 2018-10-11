@@ -1,0 +1,53 @@
+
+
+
+
+
+<% if current_user.doctor %>
+ <p>i am a doctor </p>
+ <h1>Booked patient</h1>
+    <% @patient.each do |pat| %>
+        <% @details = User.where(:id => pat).first %>
+        <h3>Name:<%= @details.email %></h3>
+        <h3>Name:<%= pat.date %></h3>
+        
+
+    <% end %>
+<% else %>
+	<p>i am not a doctor </p>
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<h1>Doctors</h1>
+		<% @doctor.each do |doc| %>
+	        <% if doc.doctor %>
+
+	        <div id="patientform" ng-controller="patientController">
+	        	<div class="container row">
+				  <div class="col-sm-6 result">
+				    
+				      
+				          <div class="col-sm-12 panel panel-default w3-card">
+				            <div class="details col-sm-8">
+				              <h3>Name:<%= doc.email %></h3>
+				            </div>
+				            <div class="col-sm-4" id="connect">
+				              <md-datepicker ng-model="" md-placeholder="Enter date"></md-datepicker>
+				            </div>
+				            
+				          </div>
+				             
+				         </div>
+				     </div>
+				 </div>
+
+	        	<h3>Name:<%= doc.email %></h3>
+	        <% end %>
+
+	    <% end %>
+	
+<% end %>
+<br>
+
