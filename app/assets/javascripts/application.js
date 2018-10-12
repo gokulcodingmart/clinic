@@ -14,18 +14,24 @@
 
 //= require lib/jquery.min
 //= require lib/angular.min
-//= require lib/angular-animate.min
-//= require lib/angular-aria.min
-//= require lib/angular-messages.min
-//= require lib/angular-material.min
+//= require lib/bootstrap.min
+
+//= require lib/ng-tags-input.min
+//= require lib/ng-file-upload.min
+//= require lib/ng-file-upload-shim.min
 
 
-//= require jquery3
-//= require popper
+//= require rails-ujs
 //= require bootstrap
 //= require bootstrap-sprockets
-
-
+//= require activestorage
+//= require lib/underscore-min
+//= require angularjs/rails/resource
+//= require angularjs/rails/resource/extensions/snapshots
 //= require_tree ./lib
 //= require_tree ./angular
 //= require_tree .
+
+
+
+

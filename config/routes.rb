@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   get 'home/index'
   get 'home/search'
+  post "home/save_booking_details" => "home#save_booking_details"
+  resource :home
   devise_for :users
-
   devise_scope :user do  
 	   get '/users/sign_out' => 'devise/sessions#destroy'     
 	end
