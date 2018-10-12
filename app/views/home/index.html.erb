@@ -39,9 +39,32 @@
 <% else %>
 	
 	<br>
+	<div ng-controller="bookcontroller">
+   <div class="col-sm-5 w3-card-2 w3-hover-shadow w3-center doc" ng-repeat="x in doctors">
+   	<div>&nbsp</div>
+      <div class="details col-sm-12 w3-center ">
+        <h3 >{{x.email}}
+        	
+        </h3>
+        
+      </div>
+      <div class=" " >
+      	
+
+			    
+			    <input id="booking.date" name="date" type="date" ng-model="booking.date" />
+			    <input type="submit" value = "Book" ng-click="book(booking,x.id)" class ="btn w3-blue" />
+			    <br>
+			</div>
+			<div>&nbsp</div>
+        
+     </div>
+      <br>
+      
+    </div>
 	
 
-	<h1 align="center">Doctors List</h1>
+	<!--<h1 align="center">Doctors List</h1>
 	<br>
 	<br>
 		<% @doctor.each do |doc| %>
@@ -62,11 +85,11 @@
 				            <div class=" " >
 				            	<%= form_tag(home_search_path, method: "get") do %>
 							        
-									<input id="user_born_on" name="date" type="date" />
-							        <%= hidden_field_tag(:doctorid, doc.id) %>
-							        
-							        <%= submit_tag ("Book"), class: " btn w3-blue" %>
-							        <span id="gmaps-error"></span>
+												<input id="user_born_on" name="date" type="date" />
+										        <%= hidden_field_tag(:doctorid, doc.id) %>
+										        
+										        <%= submit_tag ("Book"), class: " btn w3-blue" %>
+										        <span id="gmaps-error"></span>
 							        <% end %>
 				              
 				            </div>
@@ -82,6 +105,7 @@
 	        <% end %>
 
 	    <% end %>
+	  -->
 	
 <% end %>
 <br>
@@ -90,7 +114,7 @@
 <br>
 <br>
 <br>
-
+<!--
 
 <% @doctor.each do |doc| %>
 	        <% if doc.doctor %>
@@ -129,16 +153,21 @@
 
 	    <% end %>
 
-<div ng-controller="bookcontroller">
+-->
+
+
+
+
+<br>
+<br>
+
+<script type="text/javascript">
+  var json = {
+    currentUser: <%= current_user.to_json.html_safe %>,
+    doctors: <%= @doctor.to_json.html_safe %>
     
-    <input ng-model="booking.doctor">
-    <input id="booking.date" name="date" type="date" ng-model="booking.date" />
-    <input type="submit" value = "Book" ng-click="book(booking)" />
-	</div>
+  }
 
-
-<br>
-<br>
-
+</script>
 
 
